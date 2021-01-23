@@ -18,7 +18,7 @@ public class HlavniProgram {
 
         /*
         // Naprogramujte kočku tak, aby obešla digitální ležatou osmičku od kraje okna ke kraji.
-        Cat sylvester = new Cat(50, 50);
+        var sylvester = new Cat(50, 50);
         sylvester.moveForward(500);
         sylvester.turnRight();
         sylvester.moveForward(400);
@@ -38,44 +38,40 @@ public class HlavniProgram {
         */
 
         // Vytvořte bludiště ze stromů.
-        for (int i=0; i<8; i++) {
+        for (var i=0; i<8; i++) {
             new Tree(100, 100 + i*50);
         }
-        for (int i=0; i<8; i++) {
+        for (var i=0; i<8; i++) {
             new Tree(150 + i*50, 100);
         }
-        for (int i=0; i<10; i++) {
+        for (var i=0; i<10; i++) {
             new Tree(300 + i*50, 300);
         }
-        for (int i=0; i<10; i++) {
+        for (var i=0; i<10; i++) {
             new Tree(250 + i*50, 450);
         }
         new Tree(350, 200);
         new Tree(350, 150);
-        for (int i=0; i<4; i++) {
+        for (var i=0; i<4; i++) {
             new Tree(700, i*50);
         }
-        for (int i=0; i<3; i++) {
+        for (var i=0; i<3; i++) {
             new Tree(750, 400 + i*50);
         }
 
 
         // Naprogramujte myš tak, aby se ovládala pomocí šipek na klávesnici.
-        Mouse jerry;
-        KeyboardBrain ovladacMysi;
-        jerry = new Mouse(100, 100);
-        ovladacMysi = new KeyboardBrain();
+        var jerry = new Mouse(100, 100);
+        var ovladacMysi = new KeyboardBrain();
         jerry.setBrain(ovladacMysi);
 
         // Vytvořte 5 sýrů na náhodných pozicích,
         // položte je do bludiště z minula a nechejte myš ovládat klávesnicí.
         // Uvidíte, že až myš sesbírá všechny sýry, hra ohlásí vítězství.
-        Random generatorNahodnychCisel = new Random();
-        for (int i = 0; i < 5; i++) {
-            int x;
-            int y;
-            x = generatorNahodnychCisel.nextInt(900);
-            y = generatorNahodnychCisel.nextInt(550);
+        var generatorNahodnychCisel = new Random();
+        for (var i = 0; i < 5; i++) {
+            var x = generatorNahodnychCisel.nextInt(900);
+            var y = generatorNahodnychCisel.nextInt(550);
             new Cheese(x, y);
         }
 
@@ -87,10 +83,8 @@ public class HlavniProgram {
 
         // Do programu přidejte kočku. Nechejte myš ovládat šipkami na klávesnici,
         // zatímco kočku pomocí W, A, S, D.
-        Cat tom;
-        KeyboardBrain ovladacKocky;
-        tom = new Cat(600, 400);
-        ovladacKocky = new KeyboardBrain(KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D);
+        var tom = new Cat(600, 400);
+        var ovladacKocky = new KeyboardBrain(KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D);
         tom.setBrain(ovladacKocky);
         */
 
@@ -101,8 +95,7 @@ public class HlavniProgram {
 
         // Vytvořte kočce Brain tak, aby se pohybovala náhodně, místo kláves W, A, S, D.
         // Zeptejte se lektora, jak můžete nejsnadněji naprogramovat vlastní Brain.
-        Cat tom;
-        tom = new Cat(250, 250);
+        var tom = new Cat(250, 250);
         tom.setBrain(it -> {
             while (true) {
                 while (tom.isPossibleToMoveForward()) {

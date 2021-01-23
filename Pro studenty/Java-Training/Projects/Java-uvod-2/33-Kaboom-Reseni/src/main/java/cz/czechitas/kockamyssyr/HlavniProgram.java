@@ -7,19 +7,19 @@ import net.sevecek.util.*;
 public class HlavniProgram {
 
     public void main(String[] args) {
-        GameManager gameManager = new GameManager();
-        int mysX = ((gameManager.getWidth() / 2) / 50) * 50;
-        int mysY = ((gameManager.getHeight() - 49) / 50) * 50;
-        Mouse gonzales = new Mouse(mysX, mysY);
-        KeyboardBrain ovladacMysi = new KeyboardBrain(KeyCode.SPACE, KeyCode.LEFT, KeyCode.SPACE, KeyCode.RIGHT);
+        var gameManager = new GameManager();
+        var mysX = ((gameManager.getWidth() / 2) / 50) * 50;
+        var mysY = ((gameManager.getHeight() - 49) / 50) * 50;
+        var gonzales = new Mouse(mysX, mysY);
+        var ovladacMysi = new KeyboardBrain(KeyCode.SPACE, KeyCode.LEFT, KeyCode.SPACE, KeyCode.RIGHT);
         gonzales.setBrain(ovladacMysi);
 
-        Random randomGenerator = new Random();
+        var randomGenerator = new Random();
 
-        int velikostX = gameManager.getWidth() / 50;
-        int syrX = randomGenerator.nextInt(velikostX) * 50;
-        Cheese syr = new Cheese(syrX, 0);
-        int pocetSyru = 0;
+        var velikostX = gameManager.getWidth() / 50;
+        var syrX = randomGenerator.nextInt(velikostX) * 50;
+        var syr = new Cheese(syrX, 0);
+        var pocetSyru = 0;
         while (syr != null) {
             Cheese pristiSyr = null;
             if (pocetSyru<4) {
@@ -27,10 +27,10 @@ public class HlavniProgram {
                 pristiSyr = new Cheese(pristiSyrX, 0);
             }
             syr.turnRight();
-            while (syr.getY() < gameManager.getHeight() - 60 && !syr.isRemoved()) {
+            while (syr.getY() < gameManager.getHeight() - 60 && syr.isAlive()) {
                 syr.moveForward();
             }
-            if (!syr.isRemoved()) {
+            if (syr.isAlive()) {
                 break;
             }
             syr = pristiSyr;
@@ -39,7 +39,7 @@ public class HlavniProgram {
 
         if (syr != null) {
             gonzales.setBrain(null);
-            Cat kocka = new Cat(gonzales.getX()-200, mysY);
+            var kocka = new Cat(gonzales.getX()-200, mysY);
             kocka.moveForward(400);
         }
     }
