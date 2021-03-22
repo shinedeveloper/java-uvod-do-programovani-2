@@ -24,12 +24,17 @@ public class HlavniOkno extends JFrame {
     }
 
     private void priStiskuBtnProvedPrevod(ActionEvent e) {
-        var prevodnikCisel = new DoubleFormatter("0.##");
-        var mileText = editMile.getText();
+        DoubleFormatter prevodnikCisel;
+        prevodnikCisel = new DoubleFormatter("0.##");
 
-        var mile = prevodnikCisel.parse(mileText);
-        var km = mile * 1.609344;
-        var kmText = prevodnikCisel.print(km);
+        String mileText;
+        Double mile;
+        double km;
+        String kmText;
+        mileText = editMile.getText();
+        mile = prevodnikCisel.parse(mileText);
+        km = mile * 1.609344;
+        kmText = prevodnikCisel.print(km);
 
         editKilometry.setText(kmText);
     }

@@ -4,16 +4,21 @@ import cz.czechitas.objekty.dates.SimpleDate;
 import cz.czechitas.objekty.dates.SimpleTime;
 import net.sevecek.console.TextTerminal;
 import java.awt.*;
+import java.util.Random;
 
 public class SpousteciTrida {
 
     public static void main(String[] args) {
-        var console = new TextTerminal();
+        TextTerminal console;
+        console = new TextTerminal();
 
         /*
-        var jmeno = "Kamil";
-        var mujVek = 36;
-        var mojeVyska = 1.80;
+        String jmeno;
+        int mujVek;
+        double mojeVyska;
+        jmeno = "Kamil";
+        mujVek = 36;
+        mojeVyska = 1.80;
 
         // System.out.println("Ahoj, zdravi vas ");
         console.println("Ahoj, zdravi vas ");
@@ -25,16 +30,19 @@ public class SpousteciTrida {
         */
 
         /*
-        var barvaKamilovaTricka = new Color(57, 186, 251);
+        Color barvaKamilovaTricka;
+        barvaKamilovaTricka = new Color(57, 186, 251);
         console.print("Moje tricko ma tuto ");
         console.setTextColor(barvaKamilovaTricka);
         console.println("barvu");
         console.setTextColor(null);
 
-        var modraSlozkaKamilovaTricka = barvaKamilovaTricka.getBlue();
+        int modraSlozkaKamilovaTricka;
+        modraSlozkaKamilovaTricka = barvaKamilovaTricka.getBlue();
         console.println(modraSlozkaKamilovaTricka);
 
-        var rozmeryMehoPocitace = new Dimension(385, 270);
+        Dimension rozmeryMehoPocitace;
+        rozmeryMehoPocitace = new Dimension(385, 270);
         console.println(rozmeryMehoPocitace);
         console.println(rozmeryMehoPocitace.getWidth());
         console.println(rozmeryMehoPocitace.getHeight());
@@ -43,7 +51,8 @@ public class SpousteciTrida {
         //---------------------------------------------------------------------
 
         /*
-        var dnesek = new SimpleDate();
+        SimpleDate dnesek;
+        dnesek = new SimpleDate();
         console.print("Dnes je ");
         console.print(dnesek.getDay() + ". ");
         console.print(dnesek.getMonth() + ". ");
@@ -51,7 +60,8 @@ public class SpousteciTrida {
         */
 
         /*
-        var aktualniCas = new SimpleTime();
+        SimpleTime aktualniCas;
+        aktualniCas = new SimpleTime();
         console.print("Prave je ");
         console.print(aktualniCas.getHour() + ":");
         console.print(aktualniCas.getMinute() + ":");
@@ -59,20 +69,26 @@ public class SpousteciTrida {
         */
 
         /*
-        var zacatekWorkshopu = new SimpleTime(9, 30);
-        var dobaStudia = aktualniCas.between(zacatekWorkshopu);
+        SimpleTime zacatekWorkshopu;
+        TimeDuration dobaStudia;
+        zacatekWorkshopu = new SimpleTime(9, 30);
+        dobaStudia = aktualniCas.between(zacatekWorkshopu);
         console.println(dobaStudia);
         console.println(dobaStudia.getHours());
         console.println(dobaStudia.getMinutes());
         */
 
         /*
+        int denNarozeni;
+        int mesicNarozeni
+        int rokNarozeni;
         console.print("Zadejte den narozeni: ");
-        var denNarozeni = console.readInt();
+        denNarozeni = console.readInt();
         console.print("Zadejte mesic narozeni: ");
-        var mesicNarozeni = console.readInt();
+        mesicNarozeni = console.readInt();
         console.print("Zadejte rok narozeni: ");
-        var rokNarozeni = console.readInt();
+        rokNarozeni = console.readInt();
+        SimpleDate datumNarozeni;
         var datumNarozeni = new SimpleDate(rokNarozeni, mesicNarozeni, denNarozeni);
         console.println("Den v tydnu, kdy jste se narodili: " + datumNarozeni.getDayOfWeek());
 
@@ -86,7 +102,8 @@ public class SpousteciTrida {
 
         /*
         // Vypiste aktualni datum a co je dneska za den (pondeli, utery, ...)
-        var dnesek = new SimpleDate();
+        SimpleDate dnesek;
+        dnesek = new SimpleDate();
         console.println("Dnes je "
                 + dnesek.getDay() + ". "
                 + dnesek.getMonth() + ". "
@@ -96,15 +113,19 @@ public class SpousteciTrida {
 
         /*
         // Program vypise, kolik ma aktualni mesic dni (28, 29, 30 nebo 31)
-        var dnesek = new SimpleDate();
-        var delkaMesice = dnesek.lengthOfMonth();
+        SimpleDate dnesek;
+        int delkaMesice;
+        dnesek = new SimpleDate();
+        delkaMesice = dnesek.lengthOfMonth();
         console.println("Aktulani mesic ma " + delkaMesice + " dni.");
          */
 
         /*
         // Vypiste, jestli je dneska prestupny rok nebo ne.
-        var dnesek = new SimpleDate();
-        var jeAktualniRokPrestupny = dnesek.isLeapYear();
+        SimpleDate dnesek;
+        boolean jeAktualniRokPrestupny;
+        dnesek = new SimpleDate();
+        jeAktualniRokPrestupny = dnesek.isLeapYear();
         if (jeAktualniRokPrestupny) {
             console.println("Rok " + dnesek.getYear() + " je prestupny.");
         } else {
@@ -114,17 +135,23 @@ public class SpousteciTrida {
 
         /*
         // Vypiste, kolik casu zbyva do obeda.
-        var praveTed = new SimpleTime();
-        var obedovyCas = new SimpleTime(12, 0);
-        var rozdil = obedovyCas.between(praveTed);
+        SimpleTime praveTed;
+        SimpleTime obedovyCas;
+        TimeDuration rozdil;
+        praveTed = new SimpleTime();
+        obedovyCas = new SimpleTime(12, 0);
+        rozdil = obedovyCas.between(praveTed);
         console.println("Do obeda zbyva " + rozdil.getHours() + ":" + rozdil.getMinutes());
          */
 
         /*
         // Vypiste, jake datum je za 2 tydny a za 4 tydny.
-        var dnesek = new SimpleDate();
-        var datumZaDvaTydny = dnesek.plusWeeks(2);
-        var datumZaCtyriTydny = dnesek.plusWeeks(4);
+        SimpleDate dnesek;
+        SimpleDate datumZaDvaTydny;
+        SimpleDate datumZaCtyriTydny;
+        dnesek = new SimpleDate();
+        datumZaDvaTydny = dnesek.plusWeeks(2);
+        datumZaCtyriTydny = dnesek.plusWeeks(4);
         console.println("Za 2 tydny bude " + datumZaDvaTydny.getDay() + ". "
                 + datumZaDvaTydny.getMonth() + ". "
                 + datumZaDvaTydny.getYear());
@@ -135,27 +162,50 @@ public class SpousteciTrida {
 
         /*
         // Vypiste, kolik uz uplynulo dni od zacatku roku a kolik zbyva dni do konce roku.
-        var dnesek = new SimpleDate();
-        var zacatekRoku = new SimpleDate(dnesek.getYear(), 1, 1);
-        var konecRoku = new SimpleDate(dnesek.getYear(), 12, 31);
-        var odZacatkuRoku = dnesek.betweenTotalDays(zacatekRoku);
-        var doKonceRoku = konecRoku.betweenTotalDays(dnesek);
+        SimpleDate dnesek;
+        SimpleDate zacatekRoku;
+        SimpleDate konecRoku;
+        int odZacatkuRoku;
+        int doKonceRoku;
+        dnesek = new SimpleDate();
+        zacatekRoku = new SimpleDate(dnesek.getYear(), 1, 1);
+        konecRoku = new SimpleDate(dnesek.getYear(), 12, 31);
+        odZacatkuRoku = dnesek.betweenTotalDays(zacatekRoku);
+        doKonceRoku = konecRoku.betweenTotalDays(dnesek);
         console.println("Od zacatku roku uplynulo " + odZacatkuRoku + " dni, do konce roku zbyva " + doKonceRoku + " dni.");
          */
 
         /*
         // Načtěte od uživatele čas, kdy se dneska probudil, a rekne uzivateli, jak dlouho uz je dneska vzhuru.
+        int hodinaVstavani;
+        int minutaVstavani;
+        SimpleTime vstavaniCas;
+        SimpleTime aktualniCas;
+        TimeDuration dobaVzhuru;
         console.print("Zadejte hodinu, kdy jste dneska vstavali: ");
-        var hodinaVstavani = console.readInt();
+        hodinaVstavani = console.readInt();
         console.print("Zadejte minutu, kdy jste dneska vstavali: ");
-        var minutaVstavani = console.readInt();
-        var vstavaniCas = new SimpleTime(hodinaVstavani, minutaVstavani);
-        var aktualniCas = new SimpleTime();
-        var dobaVzhuru = aktualniCas.between(vstavaniCas);
+        minutaVstavani = console.readInt();
+        vstavaniCas = new SimpleTime(hodinaVstavani, minutaVstavani);
+        aktualniCas = new SimpleTime();
+        dobaVzhuru = aktualniCas.between(vstavaniCas);
         console.println("Jste vzhuru " + dobaVzhuru.getHours() + " h " + dobaVzhuru.getMinutes() + " min");
         */
 
         // Vypište, na které dny v týdnu připadají letošní státní svátky (Datum + DenVTydnu, Datum + DenVTydnu, ...)
+        SimpleDate dnesek;
+        int soucasnyRok;
+        SimpleDate svatek1;
+        SimpleDate svatek2;
+        SimpleDate svatek3;
+        SimpleDate svatek4;
+        SimpleDate svatek5;
+        SimpleDate svatek6;
+        SimpleDate svatek7;
+        SimpleDate svatek8;
+        SimpleDate svatek9;
+        SimpleDate svatek10;
+        SimpleDate svatek11;
         var dnesek = new SimpleDate();
         var soucasnyRok = dnesek.getYear();
         var svatek1 = new SimpleDate(soucasnyRok, 1, 1);

@@ -4,18 +4,23 @@ import cz.czechitas.objekty.dates.SimpleDate;
 import cz.czechitas.objekty.dates.SimpleTime;
 import net.sevecek.console.TextTerminal;
 import java.awt.*;
+import java.util.Random;
 
 public class SpousteciTrida {
 
     public static void main(String[] args) {
         System.out.println("Ahoj, zdravim vas!");
 
-        var console = new TextTerminal();
+        TextTerminal console;
+        console = new TextTerminal();
         console.println("Ahoj, opet vas zdravim!");
 
-        var jmeno = "Kamil";
-        var mujVek = 36;
-        var mojeVyska = 1.80;
+        String jmeno;
+        int mujVek;
+        double mojeVyska;
+        jmeno = "Kamil";
+        mujVek = 36;
+        mojeVyska = 1.80;
 
         console.println("Ahoj, zdravi vas ");
         console.println(jmeno);
